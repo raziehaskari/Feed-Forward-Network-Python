@@ -1,3 +1,27 @@
+"""
+MIT License
+
+Copyright (c) 2016 Pythonix
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+
 import numpy as np
 import pickle
 import time
@@ -7,17 +31,13 @@ import math
 class FeedForwardNetwork():
 
     def __init__(self, input_dim, hidden_dim, output_dim, dropout=False, dropout_prop=0.5):
-        np.random.seed(1)
         self.input_layer = np.array([])
         self.hidden_layer = np.array([])
         self.output_layer = np.array([])
         self.hidden_dim = hidden_dim
         self.dropout = dropout
         self.dropout_prop = dropout_prop
-        
-        r_input_hidden = math.sqrt(6 / (input_dim + hidden_dim))
-        r_hidden_output = math.sqrt(6 / (hidden_dim + output_dim))
-               
+                       
         self.weights_input_hidden = np.random.uniform(low=-0.01, high=0.01, size=(input_dim, hidden_dim))
         self.weights_hidden_output = np.random.uniform(low=-0.01, high=0.01, size=(hidden_dim, output_dim))
         
